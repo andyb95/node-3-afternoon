@@ -760,7 +760,8 @@ module.exports = {
 
   update: (req, res, next) => {
     const dbInstance = req.app.get('db');
-    const { params, query } = req;
+    const { id } = req.params;
+    const { query } = req.body;
 
     dbInstance.update_product([params.id, query.desc])
       .then(() => res.sendStatus(200))
